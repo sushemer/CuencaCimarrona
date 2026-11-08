@@ -4,6 +4,7 @@ function renderSiteShell() {
   const currentPath = window.location.pathname;
   const navItems = [
     { label: 'Inicio', href: `${root}index.html`, path: 'index.html' },
+    { label: 'Emergencias', href: `${root}pages/emergencias.html`, path: 'emergencias.html' },
     { label: 'Juegos', href: `${root}pages/juegos.html`, path: 'juegos.html' },
     { label: 'Aprende', href: `${root}pages/aprende.html`, path: 'aprende.html' },
     { label: 'Consejos', href: `${root}pages/recursos.html`, path: 'recursos.html' }
@@ -26,9 +27,8 @@ document.title = document.title.replace(/Cuencia/gi, 'Cuenca');
 document.querySelectorAll('.brand strong, .footer-brand strong').forEach((element) => { element.textContent = 'CUENCA CIMARRONA'; });
 document.querySelectorAll('.footer-bottom span').forEach((element) => { element.textContent = element.textContent.replace(/Cuencia/gi, 'Cuenca'); });
 document.querySelector('.footer-bottom span:last-child')?.replaceChildren(document.createTextNode('Realizado por estudiantes.'));
+document.querySelector('.social-block>p')?.replaceChildren(document.createTextNode('Redes sociales'));
 document.querySelector('.intro-strip strong')?.replaceChildren(document.createTextNode('Cuenca Cimarrona reúne propuestas elaboradas de manera colaborativa.'));
-document.querySelector('#directory-title')?.replaceChildren(document.createTextNode('Directorio de emergencia rápida'));
-document.querySelector('.directory-note')?.replaceChildren(document.createTextNode('Seleccione un contacto para llamar desde su dispositivo. Ante una emergencia inmediata, llame al 911.'));
 
 const games = [
   { tag: 'JUEGO · RALLY · EQUIPOS', title: 'Escape de la tormenta', text: 'Resuelva retos y encuentre una ruta segura durante la lluvia.', image: 'assets/images/game-rally.png', tagClass: '' },
