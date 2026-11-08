@@ -406,24 +406,19 @@ h1,h2,h3,.brand strong{font-family:"DM Sans",Arial,sans-serif;font-weight:700;le
 .topic-list{display:grid;gap:11px;margin:0;padding:0;list-style:none}
 .topic-list li{position:relative;padding-left:25px;color:#52685c;font-size:13px;line-height:1.65}
 .topic-list li:before{position:absolute;left:0;top:.08em;display:grid;place-items:center;width:17px;height:17px;border-radius:50%;color:#087343;background:#e1f1e5;font-size:11px;font-weight:800;content:"✓"}
-.topic-section.ocean-topic{padding:clamp(25px,3vw,34px);border-color:#d4e2ee;border-radius:28px;background:#eef6ff;box-shadow:0 16px 36px #0b2f7510}
-.ocean-mode-switch{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:17px}
-.ocean-mode-switch .button{min-height:42px;padding:0 17px;border:1px solid #d5e2dc;border-radius:999px;color:#315747;background:#fff;font:700 12px "DM Sans",Arial,sans-serif;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease}
-.ocean-mode-switch .button:hover{transform:translateY(-2px);border-color:#83b696}
-.ocean-mode-switch .button[aria-pressed="true"]{border-color:#e2470f;color:#fff;background:#e2470f;box-shadow:0 7px 16px #e2470f2b}
+.topic-section.ocean-topic{padding:24px;border:0;border-radius:24px;background:#eef6ff;box-shadow:none}
+.ocean-topic>h2{margin:0 0 14px;color:#003d24;font-family:"Barlow Condensed",sans-serif;font-size:clamp(29px,3.5vw,36px);font-weight:800;line-height:1.05;letter-spacing:-.025em}
+.ocean-mode-switch{display:inline-flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:6px;border-radius:16px;background:#fff}
+.ocean-mode-switch .button{min-height:44px;padding:0 18px;border:0;border-radius:12px;color:#003d24;background:transparent;font:700 13px "DM Sans",Arial,sans-serif;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
+.ocean-mode-switch .button:hover{transform:translateY(-1px);background:#e6f4ec}
+.ocean-mode-switch .button[aria-pressed="true"]{color:#fff;background:#e2470f;box-shadow:none}
 .ocean-lab-body{display:grid;grid-template-columns:minmax(0,3fr) minmax(215px,1fr);gap:18px;align-items:center}
 .pac-figure{min-width:0}
 .pacific{display:block;width:100%;height:auto;overflow:hidden;border-radius:18px;background:#e3f3ff;box-shadow:0 8px 20px #0b2f7518}
-.pac-sun{fill:#f8d674;opacity:.8;animation:pac-sun-breathe 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.pac-cloud-soft{fill:#fff;opacity:.82;animation:pac-cloud-drift 9s ease-in-out infinite}
 .pac-warm{transition:opacity .85s ease}
 .pacific.is-normal .warm-nino,.pacific.is-nino .warm-normal{opacity:0}
 .pac-tag{fill:#fff;font-family:"DM Sans",Arial,sans-serif;font-size:24px;font-weight:700}
-.pac-tag.dark{fill:#003d24}
-.pac-place{fill:#fff;font-family:"Barlow Condensed",sans-serif;font-size:19px;font-weight:800;letter-spacing:.08em;paint-order:stroke;stroke:#07527a;stroke-width:3px;stroke-linejoin:round}
 .pac-surface{fill:none;stroke:#e7ffffc7;stroke-width:4;stroke-linejoin:round}
-.pac-current{fill:none;stroke:#8ed3e4;stroke-width:3;stroke-linecap:round;stroke-dasharray:22 14;opacity:.68;animation:pac-current-flow 5s linear infinite}
-.pac-current.current-two{stroke:#55b5d2;stroke-dasharray:15 18;animation-duration:6.5s;animation-direction:reverse}
 .pac-upwell{fill:none;stroke:#9ad8ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;transition:opacity .75s ease}
 .pac-upwell path:not(:last-child){stroke-dasharray:14 12;animation:pac-upwell 1.2s linear infinite}
 .pacific.is-nino .pac-upwell{opacity:0}
@@ -438,22 +433,19 @@ h1,h2,h3,.brand strong{font-family:"DM Sans",Arial,sans-serif;font-weight:700;le
 .pac-rain line{stroke:#1e6fd9;stroke-width:4;stroke-linecap:round;animation:pac-rain-fall .9s linear infinite}
 .pac-rain line:nth-child(2n){animation-delay:-.45s}.pac-rain line:nth-child(3){animation-delay:-.2s}
 .pac-land{fill:#4f9a5f}
-.pac-axis{display:flex;justify-content:space-between;gap:12px;margin:9px 2px 0;color:#315747;font-size:11px;font-weight:800}
-.pac-legend{display:flex;flex-wrap:wrap;gap:7px 15px;margin:11px 2px 1px;padding:0;list-style:none;color:#48675a;font-size:10px;font-weight:700}
+.pac-axis{display:flex;justify-content:space-between;gap:12px;margin:9px 2px 0;color:#315747;font-size:12px;font-weight:800}
+.pac-legend{display:flex;flex-wrap:wrap;gap:7px 15px;margin:11px 2px 1px;padding:0;list-style:none;color:#48675a;font-size:11px;font-weight:700}
 .pac-legend li{display:inline-flex;align-items:center;gap:6px}
-.pac-legend .lg{display:inline-block;width:17px;height:10px;border-radius:4px}
+.pac-legend .lg{display:inline-block;width:19px;height:12px;border-radius:4px}
 .pac-legend .lg-warm{background:linear-gradient(90deg,#e63946,#ffa62b)}.pac-legend .lg-cold{background:#0b2f75}
 .pac-legend .lg-wind{height:3px;border-radius:3px;background:#003d24}.pac-legend .lg-rain{border:1px solid #8aa9c4;background:#fff}
 .lab-steps{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:paso}
-.lab-steps li{display:flex;align-items:center;gap:11px;min-height:63px;padding:11px 13px;border:1px solid #dce9df;border-radius:15px;color:#173c2e;background:#fff;box-shadow:0 7px 17px #003d240b;font-size:11px;font-weight:700;line-height:1.45;counter-increment:paso;animation:pac-step-in .4s ease-out both;animation-delay:calc(var(--i)*.12s)}
-.lab-steps li:before{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:50%;color:#fff;background:#e2470f;font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:800;content:counter(paso)}
-.lab-note{margin:13px 2px 0;color:#667a70;font-size:10px;line-height:1.55}.lab-note a{color:#087343;font-weight:800;text-decoration:none}.lab-note a:hover{text-decoration:underline;text-underline-offset:3px}
+.lab-steps li{display:flex;align-items:center;gap:12px;padding:12px 14px;border:0;border-radius:16px;color:#003d24;background:#fff;font-size:14px;font-weight:600;line-height:1.45;counter-increment:paso;animation:pac-step-in .4s ease-out both;animation-delay:calc(var(--i)*.15s)}
+.lab-steps li:before{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border-radius:50%;color:#fff;background:#e2470f;font-family:"Barlow Condensed",sans-serif;font-size:20px;font-weight:800;content:counter(paso)}
+.lab-note{margin:6px 0 0;color:#667a70;font-size:12px;line-height:1.55}.lab-note a{color:#087343;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 @keyframes pac-wind-drift{0%{transform:translateX(20px);opacity:0}25%,75%{opacity:1}100%{transform:translateX(-20px);opacity:0}}
 @keyframes pac-upwell{to{stroke-dashoffset:-40}}
 @keyframes pac-rain-fall{0%{transform:translateY(-4px);opacity:.2}35%{opacity:1}100%{transform:translateY(20px);opacity:.2}}
-@keyframes pac-current-flow{to{stroke-dashoffset:-120}}
-@keyframes pac-cloud-drift{0%,100%{transform:translateX(0)}50%{transform:translateX(16px)}}
-@keyframes pac-sun-breathe{0%,100%{opacity:.65;transform:scale(.96)}50%{opacity:.95;transform:scale(1.06)}}
 @keyframes pac-step-in{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
 .outlook-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
 .outlook-card{min-height:165px;padding:19px;border:1px solid #dce8de;border-radius:18px;background:#f8faf7;transition:transform .22s ease,box-shadow .22s ease}
@@ -494,9 +486,10 @@ h1,h2,h3,.brand strong{font-family:"DM Sans",Arial,sans-serif;font-weight:700;le
 .supply-check-card.is-checked .supply-group-label{color:#fff;background:#087343}
 .lesson-topic-content a:focus-visible,.lesson-topic-content button:focus-visible,.lesson-topic-content input:focus-visible{outline:3px solid #e6b43c;outline-offset:3px}
 @keyframes topic-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:800px){.ocean-lab-body{grid-template-columns:1fr}.lab-steps{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-steps li{align-items:flex-start;flex-direction:column;min-height:112px}.outlook-grid{grid-template-columns:1fr}.outlook-card{min-height:0}.supply-checklist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.outlook-grid{grid-template-columns:1fr}.outlook-card{min-height:0}.supply-checklist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.ocean-lab-body{grid-template-columns:1fr}.lab-steps{grid-template-columns:1fr}}
 @media(max-width:620px){.lesson-detail-content{gap:18px;padding:28px 0 20px}.lesson-detail-content>div{padding:8px 2px}.topic-section{padding:23px 18px;border-radius:21px}.topic-section.ocean-topic{padding:23px 18px;border-radius:22px}.checklist-progress{grid-template-columns:auto 1fr;gap:8px 11px}.checklist-progress .topic-progress{grid-column:1/-1;grid-row:2}.checklist-progress .text-button{grid-column:1/-1;justify-self:start;padding:3px 0}.plan-steps-grid,.supply-checklist-grid,.lab-steps{grid-template-columns:1fr}.supply-check-card{min-height:0}.supply-check-card>p{min-height:0}.pacific{border-radius:12px}.lab-steps li{align-items:center;flex-direction:row;min-height:0}.pac-legend{gap:7px 10px}.pac-legend li{font-size:9px}.topic-source-links{align-items:stretch;flex-direction:column}.topic-source-links .text-link{justify-content:center}}
-@media(prefers-reduced-motion:reduce){.weather-control,.weather-sky,.wind-trail,.tree-crown,.wind-tree,.wind-leaf,.weather-grass,.rain-drop,.heat-sun,.heat-rays,.heat-wave,.snowflake,.topic-section,.ocean-mode-switch .button,.pac-sun,.pac-cloud-soft,.pac-warm,.pac-current,.pac-upwell,.pac-upwell path,.pac-wind,.pac-wind path,.pac-storm,.pac-rain line,.lab-steps li,.outlook-card,.topic-source-links .text-link,.plan-step-card,.supply-check-card,.topic-progress::-webkit-progress-value{animation:none!important;transition:none!important}.outlook-card:hover,.topic-source-links .text-link:hover,.plan-step-card:hover,.supply-check-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.weather-control,.weather-sky,.wind-trail,.tree-crown,.wind-tree,.wind-leaf,.weather-grass,.rain-drop,.heat-sun,.heat-rays,.heat-wave,.snowflake,.topic-section,.ocean-mode-switch .button,.pac-warm,.pac-upwell,.pac-upwell path,.pac-wind,.pac-wind path,.pac-storm,.pac-rain line,.lab-steps li,.outlook-card,.topic-source-links .text-link,.plan-step-card,.supply-check-card,.topic-progress::-webkit-progress-value{animation:none!important;transition:none!important}.outlook-card:hover,.topic-source-links .text-link:hover,.plan-step-card:hover,.supply-check-card:hover{transform:none}}
 
 /* Información: tarjetas coordinadas y acciones familiares cerca de la introducción */
 .information-page .prepare-section{margin:4px 0 42px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}

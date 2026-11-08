@@ -257,16 +257,21 @@ function setupLessonDetail() {
 
   if (selected.topic === 'nino') {
     const oceanSection = make('section', 'topic-section ocean-topic');
-    addSectionHeading(oceanSection, 'EL FENÓMENO', '¿Qué cambia en el Pacífico?', 'Compare un año habitual con un episodio de El Niño. El océano y la atmósfera interactúan y desplazan los patrones de viento y lluvia.');
+    const oceanTitle = make('h2', '', '¿Qué cambia en el Pacífico?');
+    oceanTitle.id = 'ocean-pacific-heading';
+    oceanSection.setAttribute('aria-labelledby', oceanTitle.id);
+    oceanSection.append(oceanTitle);
     const modeGroup = make('div', 'ocean-mode-switch');
     modeGroup.setAttribute('role', 'group');
     modeGroup.setAttribute('aria-label', 'Compare las condiciones del Pacífico');
     const figure = make('div', 'pac-figure');
-    const visual = document.createElement('svg');
+    const visual = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     visual.classList.add('pacific', 'is-normal');
     visual.setAttribute('viewBox', '0 0 1000 440');
+    visual.setAttribute('width', '1000');
+    visual.setAttribute('height', '440');
     visual.setAttribute('role', 'img');
-    visual.setAttribute('aria-label', 'Año habitual: los vientos empujan el agua caliente hacia Asia y Australia; frente a América asciende agua fría.');
+    visual.setAttribute('aria-label', 'Año normal: los vientos empujan el agua caliente hacia Asia y Australia; frente a América asciende agua fría.');
     visual.innerHTML = `
       <defs>
         <linearGradient id="pacific-detail-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd3ff"/><stop offset="1" stop-color="#e3f3ff"/></linearGradient>
@@ -276,15 +281,11 @@ function setupLessonDetail() {
       </defs>
       <g clip-path="url(#pacific-detail-frame)">
         <rect width="1000" height="440" fill="url(#pacific-detail-sky)"/>
-        <circle class="pac-sun" cx="785" cy="83" r="35"/>
-        <path class="pac-cloud-soft" d="M90 100c4-20 30-27 46-13 11-25 48-25 59-1 22-5 39 17 28 34H106c-14 0-22-8-16-20Z"/>
         <rect y="210" width="1000" height="230" fill="url(#pacific-detail-deep)"/>
         <path class="pac-warm warm-normal" d="M0 210H1000V216C780 222 520 250 300 300C180 326 80 340 0 344Z" fill="url(#pacific-detail-warm)"/>
         <path class="pac-warm warm-nino" d="M0 210H1000V286C760 290 500 288 260 286C150 286 70 288 0 290Z" fill="url(#pacific-detail-warm)"/>
         <path class="pac-surface" d="M0 210H1000"/>
-        <path class="pac-current current-one" d="M120 372c70-20 120 20 190 0s120-20 190 0 120 20 190 0 120-20 190 0"/>
-        <path class="pac-current current-two" d="M-30 408c70-20 120 20 190 0s120 20 190 0 120-20 190 0 120 20 190 0 120-20 190 0"/>
-        <text class="pac-tag dark" x="150" y="268">Agua caliente</text><text class="pac-tag" x="520" y="404">Agua fría</text>
+        <text class="pac-tag" x="150" y="262">Agua caliente</text><text class="pac-tag" x="520" y="404">Agua fría</text>
         <g class="pac-upwell"><path d="M880 410C880 340 900 290 930 232"/><path d="M840 420C842 360 860 310 890 240"/><path d="M918 236l12-6 2 14M878 244l12-6 2 14"/></g>
         <g class="pac-winds"><g class="pac-wind w1"><path d="M780 160H620M634 148l-14 12 14 12"/></g><g class="pac-wind w2"><path d="M560 145H400M414 133l-14 12 14 12"/></g><g class="pac-wind w3"><path d="M350 170H200M214 158l-14 12 14 12"/></g></g>
         <g class="pac-storm"><g class="pac-rain"><line x1="-50" y1="100" x2="-58" y2="122"/><line x1="-25" y1="102" x2="-33" y2="124"/><line x1="0" y1="100" x2="-8" y2="122"/><line x1="25" y1="102" x2="17" y2="124"/><line x1="50" y1="100" x2="42" y2="122"/></g><path class="pac-cloud" d="M-78 92a24 24 0 0 1 8-46 34 34 0 0 1 62-14 28 28 0 0 1 48 16 22 22 0 0 1 32 22 20 20 0 0 1-12 22Z"/></g>
@@ -305,12 +306,12 @@ function setupLessonDetail() {
     steps.setAttribute('aria-live', 'polite');
     const stateCopy = {
       normal: {
-        label: 'Año habitual: los vientos alisios soplan hacia Asia y Australia, empujan el agua cálida al oeste y frente a América asciende agua fría.',
-        steps: ['Los vientos alisios soplan hacia Asia y Australia', 'Empujan el agua cálida hacia el oeste', 'Frente a América sube agua fría del fondo']
+        label: 'Año normal: los vientos alisios soplan hacia Asia y Australia, empujan el agua cálida al oeste y frente a América asciende agua fría.',
+        steps: ['Los vientos alisios soplan hacia Asia', 'Empujan el agua caliente hacia el oeste', 'Frente a América sube agua fría del fondo']
       },
       nino: {
-        label: 'Año de El Niño: los vientos alisios se debilitan, el agua cálida se extiende hacia América y las lluvias pueden desplazarse.',
-        steps: ['Los vientos alisios se debilitan', 'El agua cálida se extiende hacia América', 'Las nubes y la lluvia se desplazan hacia el Pacífico oriental']
+        label: 'Año de El Niño: los vientos alisios se debilitan, el agua caliente se extiende hacia América y las nubes y la lluvia se mueven con ella.',
+        steps: ['Los vientos alisios se debilitan', 'El agua caliente se extiende hacia América', 'Las nubes y la lluvia se mueven con ella']
       }
     };
     const renderSteps = (mode) => steps.replaceChildren(...stateCopy[mode].steps.map((line, index) => {
@@ -320,7 +321,7 @@ function setupLessonDetail() {
     }));
     renderSteps('normal');
     const modeButtons = ['normal', 'nino'].map((mode) => {
-      const button = make('button', 'button secondary', mode === 'normal' ? 'Año habitual' : 'Año de El Niño');
+      const button = make('button', 'button secondary', mode === 'normal' ? 'Año normal' : 'Año de El Niño');
       button.type = 'button';
       button.setAttribute('aria-pressed', String(mode === 'normal'));
       button.addEventListener('click', () => {

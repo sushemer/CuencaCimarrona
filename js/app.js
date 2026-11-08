@@ -310,8 +310,8 @@ function setupLessonDetail() {
         steps: ['Los vientos alisios soplan hacia Asia', 'Empujan el agua caliente hacia el oeste', 'Frente a América sube agua fría del fondo']
       },
       nino: {
-        label: 'Año de El Niño: los vientos alisios se debilitan, el agua cálida se extiende hacia América y las lluvias pueden desplazarse.',
-        steps: ['Los vientos alisios se debilitan', 'El agua cálida se extiende hacia América', 'Las nubes y la lluvia se desplazan hacia el Pacífico oriental']
+        label: 'Año de El Niño: los vientos alisios se debilitan, el agua caliente se extiende hacia América y las nubes y la lluvia se mueven con ella.',
+        steps: ['Los vientos alisios se debilitan', 'El agua caliente se extiende hacia América', 'Las nubes y la lluvia se mueven con ella']
       }
     };
     const renderSteps = (mode) => steps.replaceChildren(...stateCopy[mode].steps.map((line, index) => {
