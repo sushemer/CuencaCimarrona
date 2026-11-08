@@ -37,14 +37,7 @@
         <div class="hambu-section-heading"><div><span class="hambu-kicker">PARA LLEVAR CONTIGO</span><h2 id="hambu-consejos-title">Consejos para actuar mejor</h2></div><a href="/pages/recursos.html" class="hambu-link">Ver todos los consejos <span>↗</span></a></div>
         <div class="hambu-card-grid hambu-advice-grid"><a class="hambu-advice-card yellow" href="/pages/recursos.html"><span>☂</span><strong>Durante una tormenta</strong><p>Evite cruzar arroyos y siga información oficial.</p></a><a class="hambu-advice-card blue" href="/pages/recursos.html"><span>⌂</span><strong>Después de la lluvia</strong><p>Revise su entorno y reporte riesgos.</p></a><a class="hambu-advice-card green" href="/pages/recursos.html"><span>↗</span><strong>Comparta lo aprendido</strong><p>Ayude a que la prevención llegue a más personas.</p></a></div>
       </section>`;
-    if (visitsTag) {
-      const visitsPanel = document.createElement('div');
-      visitsPanel.className = 'hambu-visits-panel';
-      visitsPanel.innerHTML = '<span class="hambu-kicker">COMUNIDAD ACTIVA</span><strong>Personas consultando el proyecto</strong>';
-      visitsTag.classList.add('hambu-visits-tag');
-      visitsPanel.appendChild(visitsTag);
-      wrapper.prepend(visitsPanel);
-    }
+    visitsTag?.remove();
     main.appendChild(wrapper);
     const socialIcons = ['<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.2a2.6 2.6 0 0 0-1.8-1.8C17.6 6 12 6 12 6s-5.6 0-7.2.4A2.6 2.6 0 0 0 3 8.2 27 27 0 0 0 2.6 12 27 27 0 0 0 3 15.8a2.6 2.6 0 0 0 1.8 1.8C6.4 18 12 18 12 18s5.6 0 7.2-.4a2.6 2.6 0 0 0 1.8-1.8 27 27 0 0 0 .4-3.8 27 27 0 0 0-.4-3.8Z"></path><path d="m10 15 5-3-5-3v6Z" fill="currentColor" stroke="none"></path></svg>', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4c.3 2.2 1.6 3.5 4 3.7v3.1c-1.4 0-2.7-.4-4-1.1v5.7a5.6 5.6 0 1 1-4.8-5.5v3.1a2.5 2.5 0 1 0 1.7 2.4V4H15Z"></path></svg>', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a22 22 0 0 0-2.4-.1c-2.4 0-4 1.5-4 4.1V10H8v3h2.4v8h3.1Z"></path></svg>'];
     document.querySelectorAll('.hambu-footer-social a').forEach((link, index) => { if (socialIcons[index]) link.innerHTML = socialIcons[index]; });
