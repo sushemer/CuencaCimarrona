@@ -1,78 +1,58 @@
 # Cuenca Cimarrona
-Sitio web académico de UABC Tijuana sobre El Niño, prevención ante lluvias y aprendizaje mediante juegos. La interfaz está pensada para varias edades: utiliza textos breves, ilustraciones, carruseles y recorridos sencillos.
 
-## Estado actual
-- Sitio estático: no usa base de datos, inicio de sesión ni dependencias externas.
-- La información, los contadores y las participaciones son demostrativos por ahora.
-- Las redes sociales del pie de página son espacios reservados hasta tener las cuentas oficiales.
+Proyecto académico de prevención y preparación ante lluvias y El Niño en Tijuana. Se organiza con una aplicación web en Vue/Vite y una API en Laravel.
 
-## Flujo del sitio
+## Integración de interfaces
 
-```text
-Inicio
-├── Juegos
-│   └── Seleccionar dinámica → detalle dentro de la misma página
-├── Aprende
-│   └── Seleccionar tema → pages/aprende-detalle.html?tema=...
-└── Consejos
-    └── Leer consejo → sección correspondiente de Consejos
-```
-
-### Recorridos principales
-
-1. En `index.html`, la persona conoce el proyecto y encuentra tres carruseles: Juegos, Aprende y Consejos.
-2. “Ver más en Juegos” lleva a `pages/juegos.html`. Los botones de cada tarjeta muestran el detalle sin regresar al inicio.
-3. “Ver más en Aprende” lleva a `pages/aprende.html`. Cada tema tiene un enlace de información que abre una subpágina reutilizable; el contenido cambia con el parámetro `tema`.
-4. “Ver más en Consejos” lleva a `pages/recursos.html`. Las tarjetas rápidas saltan a las recomendaciones detalladas de la misma página.
-5. El encabezado permite cambiar de sección y el pie de página mantiene la identidad del proyecto y los iconos de redes.
+Esta versión combina elementos de la interfaz desarrollada por Hamed en [Cuenca-Cimarron](https://github.com/HamedJason/Cuenca-Cimarron) con la interfaz que trabajamos en la rama `hambu`. La integración busca mejorar la experiencia actual: mantener a la mano la información de emergencia, ordenar la navegación y reunir Juegos, Información y Consejos bajo un estilo visual consistente. También conserva los apartados de El Niño, Plan familiar y Mochila de emergencia.
 
 ## Estructura
 
 ```text
-CuentaCimarrona/
-├── index.html                    # Inicio y tres carruseles
-├── css/
-│   └── styles.css                # Estilos globales, responsive y componentes
-├── js/
-│   └── app.js                    # Encabezado, pie, carruseles y detalles estáticos
-├── assets/images/
-│   ├── logo_uabc.png
-│   ├── uabc-mark.svg
-│   ├── hero-el-nino.png
-│   ├── game-rally.png
-│   ├── game-decisions.png
-│   └── game-backpack.png
-└── pages/
-    ├── juegos.html               # Catálogo y detalles de dinámicas
-    ├── aprende.html              # Carrusel de aprendizaje
-    ├── aprende-detalle.html      # Plantilla de detalle para cada tema
-    └── recursos.html             # Consejos rápidos y checklist
+frontend/
+  src/            Aplicación Vue: vistas, componentes y datos
+  public/         Recursos del sitio y páginas de Juegos, Información y Consejos
+  package.json    Dependencias y comandos de desarrollo
+backend/
+  app/            API Laravel y controladores
+  routes/         Rutas HTTP
+  database/       Migraciones
+docs/             Investigación y decisiones del proyecto
+infra/            Inicialización del entorno local
+compose.yaml      Frontend, API y PostgreSQL
 ```
 
-## Componentes y comportamiento
+Los archivos de la raíz (`index.html`, `assets/`, `css/`, `js/` y `pages/`) se conservan como paquete de vista previa para abrir el estado integrado actual. Para desarrollar la aplicación modular, trabaje desde `frontend/` y `backend/`.
 
-### Encabezado y pie de página
+## Ejecutar el frontend
 
-`js/app.js` genera un encabezado y un pie consistentes en todas las páginas. También identifica la página actual, marca el enlace activo y habilita el menú móvil. Si se modifica la navegación, se debe actualizar principalmente `navItems` en ese archivo.
+```powershell
+cd frontend
+npm ci
+npm run dev
+```
 
-### Carruseles
+Vite abre la aplicación en `http://127.0.0.1:5173`. Para compilar:
 
-- El carrusel de Juegos usa `games` y los controles `prevGame`/`nextGame`.
-- El carrusel de Aprende usa `lessons` y los controles `prevLesson`/`nextLesson`.
-- Los carruseles del inicio se generan con `setupHomeCarousel()` para evitar duplicar lógica.
-- El carrusel de Consejos agrupa dos tarjetas por vista para aprovechar mejor el espacio; actualmente contiene cuatro consejos.
-- Los carruseles avanzan automáticamente cada cinco segundos y se pausan al pasar el cursor o enfocarlos con el teclado.
-- Cada carrusel muestra un indicador de posición y funciona sin servidor.
+```powershell
+npm run build
+```
 
-### Detalles
+## Ejecutar el proyecto completo
 
-- Los detalles de Juegos se muestran en `#gameDetail` mediante `setupGameLibrary()`.
-- Los detalles de Aprende se cargan en `pages/aprende-detalle.html` mediante `setupLessonDetail()`.
-- Para agregar un nuevo tema de Aprende, agregue su `slug` a `lessons` y su contenido a `content` dentro de `setupLessonDetail()`.
+Se requiere Docker Desktop y Node.js. Desde la raíz:
 
-## Próximos pasos
+```powershell
+node infra/init.mjs
+docker compose up -d --build
+```
 
-- Reemplazar los contadores demostrativos por datos reales cuando exista una fuente definida.
-- Cambiar los enlaces de redes por las cuentas oficiales.
-- Integrar los juegos reales de los equipos cuando estén aprobados.
-- Revisar el contenido preventivo con fuentes institucionales antes de publicar.
+El sitio queda en `http://localhost:8090`; la API utiliza el puerto `8091`. El archivo `.env` se genera localmente y no se debe subir al repositorio.
+
+## Tecnologías
+
+- **Frontend:** Vue 3, Vue Router y Vite.
+- **Backend:** Laravel y PostgreSQL.
+- **Interfaz adicional:** páginas estáticas de dinámicas, información y consejos en `frontend/public/pages/`.
+
+Consulte `docs/` para la investigación y los criterios visuales del proyecto.
