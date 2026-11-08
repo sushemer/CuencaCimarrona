@@ -13,12 +13,12 @@
     const footer = document.querySelector('.footer');
     const visitsTag = footer?.querySelector('.visits-tag');
     footer?.classList.add('hambu-footer');
-    if (footer) footer.innerHTML = `<div class="hambu-footer-inner"><div class="hambu-footer-brand"><img src="/assets/images/logo_uabc.png" alt="UABC"><div><strong>CUENCA CIMARRONA</strong><span>Prevención, aprendizaje y comunidad.</span></div></div><div class="hambu-footer-social"><span>Redes sociales</span><div><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">♪</a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div></div></div><div class="hambu-footer-bottom"><span>© 2026 Cuenca Cimarrona · Proyecto académico UABC</span><span>Realizado por estudiantes.</span></div>`;
+    if (footer) footer.innerHTML = `<div class="hambu-footer-inner"><div class="hambu-footer-brand"><img src="/assets/images/logo_uabc.png" alt="Escudo UABC"><span>Prevención, aprendizaje y comunidad.</span></div><div class="hambu-footer-social"><span>Redes sociales</span><div><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">♪</a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div></div></div><div class="hambu-footer-bottom"><span>© 2026 Cuenca Cimnarrón · Proyecto académico UABC</span><span>Realizado por estudiantes.</span></div>`;
 
     const wrapper = document.createElement('div');
     wrapper.className = 'hambu-sections';
     wrapper.innerHTML = `
-      <nav class="hambu-section-nav" aria-label="Secciones de Cuenca Cimarrona">
+      <nav class="hambu-section-nav" aria-label="Secciones de Cuenca Cimnarrón">
         <a href="#hambu-juegos">Juegos</a><a href="#hambu-informacion">Información</a><a href="#hambu-consejos">Consejos</a>
       </nav>
       <section class="hambu-content-section" id="hambu-juegos" aria-labelledby="hambu-juegos-title">
