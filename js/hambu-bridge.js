@@ -10,6 +10,12 @@
     const preparationHeading = [...main.querySelectorAll('h2, h3')].find((element) => /prepárate antes de que llueva/i.test(element.textContent));
     preparationHeading?.closest('section')?.remove();
 
+    const footer = document.querySelector('.footer');
+    const visitsTag = footer?.querySelector('.visits-tag');
+    if (visitsTag) document.querySelector('.header-row')?.appendChild(visitsTag);
+    footer?.classList.add('hambu-footer');
+    if (footer) footer.innerHTML = `<div class="hambu-footer-inner"><div class="hambu-footer-brand"><img src="/assets/images/logo_uabc.png" alt="UABC"><div><strong>CUENCA CIMARRONA</strong><span>Prevención, aprendizaje y comunidad.</span></div></div><div class="hambu-footer-social"><span>Redes sociales</span><div><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">♪</a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div></div></div><div class="hambu-footer-bottom"><span>© 2026 Cuenca Cimarrona · Proyecto académico UABC</span><span>Realizado por estudiantes.</span></div>`;
+
     const wrapper = document.createElement('div');
     wrapper.className = 'hambu-sections';
     wrapper.innerHTML = `
