@@ -21,15 +21,18 @@ function renderSiteShell() {
 }
 
 renderSiteShell();
+document.querySelectorAll('.brand b').forEach((element) => element.remove());
 document.title = document.title.replace(/Cuencia/gi, 'Cuenca');
 document.querySelectorAll('.brand strong, .footer-brand strong').forEach((element) => { element.textContent = 'CUENCA CIMARRONA'; });
 document.querySelectorAll('.footer-bottom span').forEach((element) => { element.textContent = element.textContent.replace(/Cuencia/gi, 'Cuenca'); });
+document.querySelector('.footer-bottom span:last-child')?.replaceChildren(document.createTextNode('Realizado por estudiantes.'));
+document.querySelector('.social-block>p')?.replaceChildren(document.createTextNode('Redes sociales'));
 document.querySelector('.intro-strip strong')?.replaceChildren(document.createTextNode('Cuenca Cimarrona reúne propuestas elaboradas de manera colaborativa.'));
 
 const games = [
-  { tag: 'JUEGO · RALLY · EQUIPOS', players: '2–5 jugadores', title: 'Escape de la tormenta', text: 'Resuelva retos y encuentre una ruta segura durante la lluvia.', image: 'assets/images/game-rally.png', tagClass: '' },
-  { tag: 'JUEGO · DECISIONES', players: '1–4 jugadores', title: 'Cada decisión cuenta', text: 'Seleccione qué hacer y descubra cómo cambia la historia.', image: 'assets/images/game-decisions.png', tagClass: 'blue-tag' },
-  { tag: 'JUEGO · RETO · 60 SEGUNDOS', players: '1–6 jugadores', title: 'Arme su mochila', text: 'Reconozca los objetos que sí son indispensables.', image: 'assets/images/game-backpack.png', tagClass: 'green-tag' }
+  { tag: 'JUEGO · RALLY · EQUIPOS', title: 'Escape de la tormenta', text: 'Resuelva retos y encuentre una ruta segura durante la lluvia.', image: 'assets/images/game-rally.png', tagClass: '' },
+  { tag: 'JUEGO · DECISIONES', title: 'Cada decisión cuenta', text: 'Seleccione qué hacer y descubra cómo cambia la historia.', image: 'assets/images/game-decisions.png', tagClass: 'blue-tag' },
+  { tag: 'JUEGO · RETO · 60 SEGUNDOS', title: 'Arme su mochila', text: 'Reconozca los objetos que sí son indispensables.', image: 'assets/images/game-backpack.png', tagClass: 'green-tag' }
 ];
 
 const resources = [
@@ -52,7 +55,7 @@ let currentSlide = 0;
 function renderGames() {
   if (!gameCarousel) return;
   gameCarousel.innerHTML = games.map((game, index) => `<article class="game-slide${index === 0 ? ' active' : ''}" aria-hidden="${index !== 0}">
-    <div class="game-copy"><span class="game-tag ${game.tagClass}">${game.tag}</span><h3>${game.title}</h3><p>${game.text}</p><div class="game-meta"><span>Cantidad de jugadores</span><strong>${game.players}</strong></div><a href="pages/juegos.html" class="outline-button">Ver dinámica <span>↗</span></a></div>
+    <div class="game-copy"><span class="game-tag ${game.tagClass}">${game.tag}</span><h3>${game.title}</h3><p>${game.text}</p><a href="pages/juegos.html" class="outline-button">Ver dinámica <span>↗</span></a></div>
     <div class="game-visual game-image" aria-hidden="true"><img src="${game.image}" alt=""></div>
   </article>`).join('');
 }
@@ -187,6 +190,8 @@ document.querySelector('#prevLesson')?.addEventListener('click', () => showLesso
 setupAutoAdvance({ next: () => showGame(currentSlide + 1), container: gameCarousel });
 setupAutoAdvance({ next: () => showLesson(currentLesson + 1), container: learningCarousel });
 document.querySelectorAll('.site-nav a[href$="recursos.html"]').forEach((link) => { link.textContent = 'Consejos'; });
+const socialUrls = ['https://www.instagram.com/', 'https://www.youtube.com/', 'https://www.tiktok.com/', 'https://www.facebook.com/'];
+document.querySelectorAll('.social-links a').forEach((link, index) => { if (socialUrls[index]) { link.href = socialUrls[index]; link.target = '_blank'; link.rel = 'noopener'; } });
 
 const menuToggle = document.querySelector('#menuToggle');
 const siteNav = document.querySelector('#siteNav');

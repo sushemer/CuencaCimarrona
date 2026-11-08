@@ -1,6 +1,10 @@
 # Cuenca Cimarrona
 Sitio web académico de UABC Tijuana sobre El Niño, prevención ante lluvias y aprendizaje mediante juegos. La interfaz está pensada para varias edades: utiliza textos breves, ilustraciones, carruseles y recorridos sencillos.
 
+## Rama de integración
+
+La rama `integracion-companero` usa esta versión como base funcional y reúne el estilo visual de la propuesta del compañero: información de emergencia prioritaria, tarjetas de contactos, refugios, navegación directa y secciones de aprendizaje más claras.
+
 ## Estado actual
 - Sitio estático: no usa base de datos, inicio de sesión ni dependencias externas.
 - La información, los contadores y las participaciones son demostrativos por ahora.
