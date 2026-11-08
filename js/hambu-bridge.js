@@ -12,7 +12,6 @@
 
     const footer = document.querySelector('.footer');
     const visitsTag = footer?.querySelector('.visits-tag');
-    if (visitsTag) document.querySelector('.header-row')?.appendChild(visitsTag);
     footer?.classList.add('hambu-footer');
     if (footer) footer.innerHTML = `<div class="hambu-footer-inner"><div class="hambu-footer-brand"><img src="/assets/images/logo_uabc.png" alt="UABC"><div><strong>CUENCA CIMARRONA</strong><span>Prevención, aprendizaje y comunidad.</span></div></div><div class="hambu-footer-social"><span>Redes sociales</span><div><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">♪</a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">f</a></div></div></div><div class="hambu-footer-bottom"><span>© 2026 Cuenca Cimarrona · Proyecto académico UABC</span><span>Realizado por estudiantes.</span></div>`;
 
@@ -38,6 +37,14 @@
         <div class="hambu-section-heading"><div><span class="hambu-kicker">PARA LLEVAR CONTIGO</span><h2 id="hambu-consejos-title">Consejos para actuar mejor</h2></div><a href="/pages/recursos.html" class="hambu-link">Ver todos los consejos <span>↗</span></a></div>
         <div class="hambu-card-grid hambu-advice-grid"><a class="hambu-advice-card yellow" href="/pages/recursos.html"><span>☂</span><strong>Durante una tormenta</strong><p>Evite cruzar arroyos y siga información oficial.</p></a><a class="hambu-advice-card blue" href="/pages/recursos.html"><span>⌂</span><strong>Después de la lluvia</strong><p>Revise su entorno y reporte riesgos.</p></a><a class="hambu-advice-card green" href="/pages/recursos.html"><span>↗</span><strong>Comparta lo aprendido</strong><p>Ayude a que la prevención llegue a más personas.</p></a></div>
       </section>`;
+    if (visitsTag) {
+      const visitsPanel = document.createElement('div');
+      visitsPanel.className = 'hambu-visits-panel';
+      visitsPanel.innerHTML = '<span class="hambu-kicker">COMUNIDAD ACTIVA</span><strong>Personas consultando el proyecto</strong>';
+      visitsTag.classList.add('hambu-visits-tag');
+      visitsPanel.appendChild(visitsTag);
+      wrapper.prepend(visitsPanel);
+    }
     main.appendChild(wrapper);
   };
 
