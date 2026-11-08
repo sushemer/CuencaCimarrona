@@ -14,6 +14,12 @@ const readMotion = () => {
   }
 };
 const motionOn = ref(readMotion());
+function recoverLogo(event) {
+  const image = event.currentTarget;
+  if (image.dataset.fallbackApplied) return;
+  image.dataset.fallbackApplied = "true";
+  image.src = "/brand/uabc-escudo.png";
+}
 const applyMotion = () =>
   document.documentElement.classList.toggle("motion-off", !motionOn.value);
 applyMotion();
@@ -84,6 +90,7 @@ onMounted(loadStats);
           alt="Escudo UABC"
           width="26"
           height="36"
+          @error="recoverLogo"
         /><span>Cuenca Cimarrón</span></RouterLink
       >
       <nav class="site-nav" aria-label="Principal">

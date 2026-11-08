@@ -15,7 +15,7 @@
         { label: 'Información', href: '/pages/aprende.html' },
         { label: 'Consejos', href: '/pages/recursos.html' }
       ];
-      siteHeader.innerHTML = `<div class="header-row"><a class="brand" href="/" aria-label="Cuenca Cimarrona, inicio"><img src="/brand/uabc-escudo-menu.png" alt="Escudo UABC" width="26" height="36"><span>Cuenca Cimarrona</span></a><nav class="site-nav" aria-label="Navegación principal">${links.map((link) => `<a class="nav-link${link.active ? ' active' : ''}" href="${link.href}"${link.active ? ' aria-current="page"' : ''}>${link.label}</a>`).join('')}</nav></div>`;
+      siteHeader.innerHTML = `<div class="header-row"><a class="brand" href="/" aria-label="Cuenca Cimarrona, inicio"><img src="/brand/uabc-escudo-menu.png" alt="Escudo UABC" width="26" height="36" onerror="this.onerror=null;this.src='/brand/uabc-escudo.png'"><span>Cuenca Cimarrona</span></a><nav class="site-nav" aria-label="Navegación principal">${links.map((link) => `<a class="nav-link${link.active ? ' active' : ''}" href="${link.href}"${link.active ? ' aria-current="page"' : ''}>${link.label}</a>`).join('')}</nav></div>`;
     }
 
     const dependencyHeading = [...main.querySelectorAll('h2, h3')].find((element) => /otros números/i.test(element.textContent));

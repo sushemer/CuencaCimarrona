@@ -12,7 +12,7 @@ function renderSiteShell() {
   const navMarkup = navItems.map((item) => `<a class="nav-link${item === activeItem ? ' active' : ''}" href="${item.href}"${item === activeItem ? ' aria-current="page"' : ''}>${item.label}</a>`).join('');
   const header = document.querySelector('.site-header');
   if (header) {
-    header.outerHTML = `<header class="site-header"><div class="header-row"><a class="brand" href="${root}index.html" aria-label="Cuenca Cimarrona, inicio"><img src="${root}brand/uabc-escudo-menu.png" alt="Escudo UABC" width="26" height="36"><span>Cuenca Cimarrona</span></a><nav class="site-nav" aria-label="Navegación principal">${navMarkup}</nav></div></header>`;
+    header.outerHTML = `<header class="site-header"><div class="header-row"><a class="brand" href="${root}index.html" aria-label="Cuenca Cimarrona, inicio"><img src="${root}brand/uabc-escudo-menu.png" alt="Escudo UABC" width="26" height="36" onerror="this.onerror=null;this.src='${root}brand/uabc-escudo.png'"><span>Cuenca Cimarrona</span></a><nav class="site-nav" aria-label="Navegación principal">${navMarkup}</nav></div></header>`;
   }
   const footer = document.querySelector('.site-footer, .simple-footer');
   if (footer) {
