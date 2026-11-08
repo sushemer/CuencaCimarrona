@@ -20,9 +20,9 @@ Inicio
 
 ### Recorridos principales
 
-1. En `index.html`, la persona conoce el proyecto y encuentra tres carruseles: Juegos, Aprende y Consejos.
+1. En `index.html`, la persona encuentra primero una franja de información de emergencia con contactos, Protección Civil y refugios temporales; después conoce el proyecto y encuentra tres carruseles: Juegos, Aprende y Consejos.
 2. “Ver más en Juegos” lleva a `pages/juegos.html`. Los botones de cada tarjeta muestran el detalle sin regresar al inicio.
-3. “Ver más en Aprende” lleva a `pages/aprende.html`. Cada tema tiene un enlace de información que abre una subpágina reutilizable; el contenido cambia con el parámetro `tema`.
+3. “Ver más en Aprende” lleva a `pages/aprende.html`. Debajo del carrusel se encuentran los riesgos, las actividades y el directorio de dependencias; cada tema también tiene un enlace de información reutilizable mediante el parámetro `tema`.
 4. “Ver más en Consejos” lleva a `pages/recursos.html`. Las tarjetas rápidas saltan a las recomendaciones detalladas de la misma página.
 5. El encabezado permite cambiar de sección y el pie de página mantiene la identidad del proyecto y los iconos de redes.
 
@@ -68,6 +68,8 @@ CuentaCimarrona/
 
 - Los detalles de Juegos se muestran en `#gameDetail` mediante `setupGameLibrary()`.
 - Los detalles de Aprende se cargan en `pages/aprende-detalle.html` mediante `setupLessonDetail()`.
+- `pages/aprende.html` reúne la ruta de aprendizaje, los riesgos de Tijuana, el propósito de cada dinámica y el directorio de emergencia al final de la página.
+- En el inicio, los accesos bajo “Ideas para comprender y prepararse” llevan directamente a las secciones correspondientes de Aprende.
 - Para agregar un nuevo tema de Aprende, agregue su `slug` a `lessons` y su contenido a `content` dentro de `setupLessonDetail()`.
 
 ## Próximos pasos
